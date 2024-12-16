@@ -29,9 +29,12 @@ mix phx.gen.context Gists SavedGist saved_gists user_id:references:users gist_id
 mix phx.gen.context Comments Comment comments user_id:references:users gist_id:references:gists markup_text:text
 
 To run:
-
-
+mix phx.server
+[info] Running ElixirGistWeb.Endpoint with Bandit 1.6.1 at 127.0.0.1:4000 (http)
+[info] Access ElixirGistWeb.Endpoint at http://localhost:4000
 
 login:
 rkba1
 reddphoenixQ125@
+
+
