@@ -64,8 +64,10 @@ defmodule ElixirGistWeb.Router do
   scope "/", ElixirGistWeb do
     pipe_through [:browser, :require_authenticated_user]
 
+    # If no action is specified, the default action (usually :mount) is used.
     live_session :require_authenticated_user,
       on_mount: [{ElixirGistWeb.UserAuth, :ensure_authenticated}] do
+      live "/create", CreateGistLive # mount
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
     end

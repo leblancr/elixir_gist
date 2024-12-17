@@ -37,4 +37,10 @@ login:
 rkba1
 reddphoenixQ125@
 
+Controllers do:
+handling incoming HTTP requests, 
+processing data, 
+returning a response (usually HTML, JSON, or other formats). 
+Controllers define the logic for responding to different routes and actions.
+
 
