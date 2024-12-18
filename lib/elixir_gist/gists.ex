@@ -9,6 +9,7 @@ defmodule ElixirGist.Gists do
   alias ElixirGist.Gists.Gist
 
   @doc """
+  The form data is passed to Gists.change_gist/2
   Returns an `%Ecto.Changeset{}` for tracking gist changes.
 
   ## Examples
@@ -18,7 +19,7 @@ defmodule ElixirGist.Gists do
 
   """
   def change_gist(%Gist{} = gist, attrs \\ %{}) do
-    Gist.changeset(gist, attrs)
+    Gist.changeset(gist, attrs) # returns a changeset
   end
 
   @doc """

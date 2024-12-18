@@ -14,7 +14,17 @@ defmodule ElixirGist.Gists.Gist do
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
+  @doc """
+  This is a function that creates the changeset data structure.
+  It is used to apply changes to a struct and return a changeset,
+  which is a structured representation of the changes.
+  gist is a %Gist{} struct
+
+  Returns:
+  A changeset that changeset can be passed to other functions
+  (e.g., Repo.insert/1, Repo.update/1, etc.) to persist the data to the database,
+  while also checking that all validation rules have passed.
+  """
   def changeset(gist, attrs) do
     gist
     |> cast(attrs, [:name, :description, :markup_text])
