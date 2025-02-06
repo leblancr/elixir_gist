@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1abf8e45-89a6-42f5-81d7-2de75534aa84" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/elixir_gist/accounts/user.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/elixir_gist/accounts/user.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/elixir_gist/gists.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/elixir_gist/gists.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/elixir_gist/gists/gist.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/elixir_gist/gists/gist.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/elixir_gist_web/live/create_gist_live.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/elixir_gist_web/live/create_gist_live.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/elixir_gist_web/live/create_gist_live.html.heex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/elixir_gist_web/live/create_gist_live.html.heex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/elixir_gist_web/router.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/elixir_gist_web/router.ex" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

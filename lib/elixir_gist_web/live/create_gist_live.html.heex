@@ -6,28 +6,49 @@
 
 <.form for={@form} phx-submit="create" phx-change="validate">
     <div class="justify-center px-28 w-full space-y-4 mb-10">
+        <!-- Description Input -->
         <.input
-        field={@form[:description]}
-        placeholder="Gist description.."
-        autocomplete="off"
-        phx-debounce="blur"
+            field={@form[:description]}
+            placeholder="Gist description.."
+            autocomplete="off"
+            phx-debounce="blur"
         />
+
         <div>
+            <!-- Gray box -->
             <div class="flex p-2 items-center bg-emDark rounded-t-md border">
+                <!-- Filename Input -->
                 <div class="w-[300px] mb-2">
                     <.input
-                    field={@form[:name]}
-                    placeholder="Filename including extension..."
-                    autocomplete="off"
-                    phx-debounce="blur"
+                        field={@form[:name]}
+                        placeholder="Filename including extension..."
+                        autocomplete="off"
+                        phx-debounce="blur"
                     />
                 </div>
-                </div>
-                <textarea name="markup_text" class="textarea w-full rounded-b-md" placeholder="Insert code..." spellcheck="false" autocomplete="off" phx-debounce="blur">
-                  <%= @form.data.markup_text %>
-                </textarea>
             </div>
-            <div class="flex justify-end">
+
+            <!-- Gist Wrapper -->
+            <div id="gist-wrapper" class="textarea flex w-full" phx-update="ignore">
+                <textarea id="line-numbers" class="line-numbers rounded-bl-md" readonly>
+                  <%= "1\n" %>
+                </textarea>
+
+                <!-- Markup Textarea ) -->
+                <.input
+                    field={@form[:markup_text]}   <!-- Bind to the form field -->
+                    id="gist-textarea"
+                    name="markup_text"
+                    placeholder="Insert code..."
+                    autocomplete="off"
+                    phx-debounce="blur"
+                    class="textarea w-full rounded-br-md p-2 bg-gray-100 border border-gray-300 focus:ring-2 focus:ring-blue-500">
+                    type="textarea"
+                </.input>
+            </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="flex justify-end">
             <.button class="create_button" phx-disable-with="Creating...">Create gist</.button>
         </div>
     </div>

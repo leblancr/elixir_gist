@@ -17,6 +17,7 @@ defmodule ElixirGistWeb.Router do
     plug :accepts, ["json"]
   end
 
+  # home page
   scope "/", ElixirGistWeb do
     pipe_through :browser
 

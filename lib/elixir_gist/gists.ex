@@ -35,10 +35,19 @@ defmodule ElixirGist.Gists do
 
   """
   def create_gist(user, attrs \\ %{}) do
-    user
-    |> Ecto.build_assoc(:gists)
-    |> Gist.changeset(attrs)
-    |> Repo.insert()
+    attrs = Map.update(attrs, "markup_text", "", &String.trim(&1))
+
+    changeset = user
+                |> Ecto.build_assoc(:gists)
+                |> Gist.changeset(attrs)
+
+    IO.inspect(changeset.errors, label: "Changeset Errors")
+    IO.inspect(changeset, label: "Changeset")
+
+    case Repo.insert(changeset) do
+      {:ok, gist} -> {:ok, gist}
+      {:error, changeset} -> {:error, changeset.errors}
+    end
   end
 
   @doc """

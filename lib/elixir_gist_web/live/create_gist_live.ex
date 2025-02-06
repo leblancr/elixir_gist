@@ -28,6 +28,7 @@ defmodule ElixirGistWeb.CreateGistLive do
 
   to_form/1 doesn't create a complete HTML page, it creates a form structure that Phoenix can use to generate the HTML.
 
+  put form in socket, value to form: key
   form: is available as @form in the template.
   """
   def mount(_params, _session, socket) do
@@ -40,23 +41,24 @@ defmodule ElixirGistWeb.CreateGistLive do
     {:ok, socket}
   end
 
+  # create gist then clear/reset form
+  def handle_event("create", %{"gist" => params}, socket) do
+    case Gists.create_gist(socket.assigns.current_user, params) do
+      {:ok, _gist} ->
+        changeset = Gists.change_gist(%Gist{}) # reset form with empty Gist struct
+        {:noreply, assign(socket, :form, to_form(changeset))} # back to blank gist?
+
+      {:error, errors} ->
+        # Handle error case
+        {:noreply, socket |> put_flash(:error, "Failed to create gist") |> assign(:errors, errors)}
+    end
+  end
+
   def handle_event("validate", %{"gist" => params}, socket) do
-    changeset =
-      %Gist{}
+    changeset = %Gist{}
       |> Gists.change_gist(params)
       |> Map.put(:action, :validate)
 
     {:noreply, assign(socket, :form, to_form(changeset))}
-  end
-
-  def handle_event("create", %{"gist" => params}, socket) do
-    case Gists.create_gist(socket.assigns.current_user, params) do
-      {:ok, _gist} ->
-        changeset = Gists.change_gist(%Gist{})
-        {:noreply, assign(socket, :form, to_form(changeset))}
-
-      {:error, %Ecto.Changeset{} = changeset} ->
-        {:noreply, assign(socket, :form, to_form(changeset))}
-    end
   end
 end
